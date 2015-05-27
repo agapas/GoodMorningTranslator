@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<html>
+	<head>
+		<title>TE20_C_MWT, Workshop 9 - jQuery Mobile: Local Lists</title>
+		
+		<!-- Specify the character encoding for the HTML document -->
+		<meta charset="utf-8" />
+
+		<!-- optimize display of the page on mobiles -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+		<!-- external jquery & jquery mobile links -->
+		<!--
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		-->
+		
+		<style>
+			.ui-bar-b {
+				color: #FE642E;
+				font-size: 30px;
+			}
+			
+			.w9.ui-bar-b.ui-footer-fixed {
+				background-color: #151515;
+			}
+			
+			#w9 {
+				color: white;
+				font-size: 14px;
+				font-weight: normal;
+				margin: 5px 20px;
+			}
+			
+			.backgroundImg {
+				background-image: url(images/good_morning.jpg); 
+				background-position: -16px -128px;
+				background-height: 100%;
+			}
+			
+			.translation {
+				font-size: 26px;
+				margin-left: 10px;
+			}
+			
+			#or {
+				margin-left: 30px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div data-role="page" id="home" data-theme="b" class="backgroundImg">
+		
+			<!-- the header with fixed position and assigned style -->
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<h1>'Good morning' translator</h1>
+			</div>
+		
+			<div data-role="content">
+				<div class="content-primary">
+					<div data-demo-html="true">
+						<p>Translate to...</p>
+						
+						<!-- set languages as a list with search input field -->
+						<ul id="languages" data-role="listview" data-filter-placeholder="Type a letter & choose a language" data-filter="true" data-filter-reveal = "true">
+						<!-- where:
+							data-filter="true" 	- displays a search input box (before a list)
+							data-filter-reveal="true" - initially hides all the items of the list
+						-->
+							
+							<!-- filtrate languages only by their first letter -->
+							<li data-filtertext="c"><a href="#czech" data-transition="pop">czech</a></li>
+							<li data-filtertext="c"><a href="#croatian" data-transition="pop">croatian</a></li>
+							<li data-filtertext="d"><a href="#danish" data-transition="pop">danish</a></li>
+							<li data-filtertext="d"><a href="#dutch" data-transition="pop">dutch</a></li>
+							<li data-filtertext="e"><a href="#estonian" data-transition="pop">estonian</a></li>
+							<li data-filtertext="f"><a href="#french" data-transition="pop">french</a></li>
+							<li data-filtertext="f"><a href="#finnish" data-transition="pop">finnish</a></li>
+							<li data-filtertext="g"><a href="#german" data-transition="pop">german</a></li>
+							<li data-filtertext="g"><a href="#greek" data-transition="pop">greek</a></li>
+							<li data-filtertext="h"><a href="#hungarian" data-transition="pop">hungarian</a></li>
+							<li data-filtertext="i"><a href="#irish" data-transition="pop">irish</a></li>
+							<li data-filtertext="i"><a href="#italian" data-transition="pop">italian</a></li>
+							<li data-filtertext="j"><a href="#japanese" data-transition="pop">japanese</a></li>
+							<li data-filtertext="l"><a href="#lithuanian" data-transition="pop">lithuanian</a></li>
+							<li data-filtertext="m"><a href="#malay" data-transition="pop">malay</a></li>
+							<li data-filtertext="n"><a href="#norwegian" data-transition="pop">norwegian</a></li>
+							<li data-filtertext="p"><a href="#polish" data-transition="pop">polish</a></li>
+							<li data-filtertext="p"><a href="#portuguese" data-transition="pop">portuguese</a></li>
+							<li data-filtertext="r"><a href="#romanian" data-transition="pop">romanian</a></li>
+							<li data-filtertext="r"><a href="#russian" data-transition="pop">russian</a></li>
+							<li data-filtertext="s"><a href="#scots" data-transition="pop">scots</a></li>
+							<li data-filtertext="s"><a href="#slovak" data-transition="pop">slovak</a></li>
+							<li data-filtertext="s"><a href="#spanish" data-transition="pop">spanish</a></li>
+							<li data-filtertext="s"><a href="#swedish" data-transition="pop">swedish</a></li>
+							<li data-filtertext="t"><a href="#thai" data-transition="pop">thai</a></li>
+							<li data-filtertext="u"><a href="#ukrainian" data-transition="pop">ukrainian</a></li>
+							<li data-filtertext="a,b,k,o,q,w,v,z,x,y">Sorry... try other letter</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<!-- the footer with fixed position and changed style -->
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+
+		
+		<div data-role="page" id="czech" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Czech:</p>
+				<p class="translation">Dobre rano</p>
+				
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>	<!-- it's a mini button -->
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="croatian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Croatian:</p>
+				<p class="translation">Dobro jutro</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="danish" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Danish:</p>
+				<p class="translation">God morgen</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="dutch" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Dutch:</p>
+				<p class="translation">Goedemorgen</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="estonian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Estonian:</p>
+				<p class="translation">Tere hommikust</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="french" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To French:</p>
+				<p class="translation">Bonjour</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="finnish" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Finnish:</p>
+				<p class="translation">Hyvaa huomenta</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="german" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To German:</p>
+				<p class="translation">Guten Morgen</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+
+		
+		<div data-role="page" id="greek" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Greek:</p>
+				<p class="translation">Kalimera</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="hungarian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Hungarian:</p>
+				<p class="translation">Jo reggelt</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="irish" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Irish:</p>
+				
+				<p><br>- traditional Irish idioms:</p>
+				<p class="translation">Mora na maidine duit / Mora na maidine daoibh</p>
+				<p id="or">-- or --</p>
+				<p class="translation">Dia dhuit ar maidin</p>
+				
+				<p>- direct translation of the English phrase:</p>
+				<p class="translation">Maidin mhaith</p>
+				
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="italian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Italian:</p>
+				<p class="translation">Buon giorno</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="japanese" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Japanese:</p>
+				<p class="translation">Ohayo</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="lithuanian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Lithuanian:</p>
+				<p class="translation">Labas rytas</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="malay" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Malay:</p>
+				<p class="translation">Selamat pagi</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="norwegian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Norwegian:</p>
+				<p class="translation">God morgen</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="polish" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Polish:</p>
+				<p class="translation">Dzien dobry</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="portuguese" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Portuguese:</p>
+				<p class="translation">Bom dia</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="romanian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Romanian:</p>
+				<p class="translation">Buna dimineata</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="russian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Russian:</p>
+				<p class="translation">Dobroye utro</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="scots" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Scots:</p>
+				<p class="translation">Guid mornin</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="slovak" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Slovak:</p>
+				<p class="translation">Dobre rano</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="spanish" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Spanish:</p>
+				<p class="translation">Buenos dias</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="swedish" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Swedish:</p>
+				<p class="translation">God morgon</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="thai" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Thai:</p>
+				<p class="translation">Sawatdi torn chao</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="ukrainian" data-theme="b" class="backgroundImg">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>'Good morning' translator</h1>
+			</div>
+			
+			<div div data-role="main" class="ui-content">
+				<p>From English To Ukrainian:</p>
+				<p class="translation">Dobroho ranki</p>
+				<a href="#home" data-role="button" data-mini="true">Go Back</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" class="w9">
+				<p id="w9">TE20_C_MWT, Workshop 9 | Made by @ Agnieszka Pas, 2015</p>
+			</div>
+		</div>
+		
+	</body>
+</html>
