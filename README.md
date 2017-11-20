@@ -3,4 +3,4 @@ This is jQuery Mobile application which translates phrase: 'Good Morning' to 26 
 The languages are set as a list with filtration by the first letter.
 
 <b>LICENSE</b><br />
-Fell free to any use.
+This project is licensed under the [licenceType] License - see the [LICENSE.md](LICENSE) file for details
